@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results | VapeScout UK</title>
+    <meta name="description" content="Search for e-liquids and compare prices across UK retailers.">
+    <meta name="robots" content="noindex">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div id="age-gate" class="age-gate">
+        <div class="age-gate-backdrop"></div>
+        <div class="age-gate-content">
+            <div class="age-gate-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg></div>
+            <h2>Age Verification Required</h2>
+            <p>This website contains information about vaping products which are only suitable for adults aged 18 and over.</p>
+            <p><strong>Are you 18 years of age or older?</strong></p>
+            <div class="age-gate-buttons">
+                <button id="age-verify-yes" class="btn btn-primary">Yes, I'm 18+</button>
+                <button id="age-verify-no" class="btn btn-secondary">No, I'm Under 18</button>
+            </div>
+            <p class="age-gate-warning"><strong>WARNING:</strong> Vaping products contain nicotine which is a highly addictive substance.</p>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo"><div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div><span>Vape<span class="text-gradient">Scout</span></span></a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+                <nav class="nav-main" id="nav-main">
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/e-liquids/" class="nav-link">E-Liquids</a>
+                    <a href="/e-liquids/brands/" class="nav-link">Brands</a>
+                    <a href="/deals/" class="nav-link">Deals</a>
+                    <a href="/guides/" class="nav-link">Guides</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="search-header">
+                    <h1 id="page-title">Search Results</h1>
+                    <form class="search-box" action="/search/" method="GET">
+                        <input type="search" name="q" id="search-input" class="search-input" placeholder="Search e-liquids...">
+                        <button type="submit" class="search-btn">Search</button>
+                    </form>
+                </div>
+                
+                <p id="search-status" class="search-status">Searching...</p>
+                
+                <div id="search-results" class="products-grid">
+                    <!-- Results loaded via JS -->
+                </div>
+                
+                <div id="no-results" class="no-results" style="display: none;">
+                    <h2>No products found</h2>
+                    <p>Try a different search term or browse our categories:</p>
+                    <div class="browse-links">
+                        <a href="/e-liquids/nic-salts/" class="btn btn-primary">Nic Salts</a>
+                        <a href="/e-liquids/shortfills/" class="btn btn-secondary">Shortfills</a>
+                        <a href="/e-liquids/brands/" class="btn btn-secondary">All Brands</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo"><span class="logo-icon">🔍</span><span class="logo-text">VapeScout</span></a>
+                    <p>Helping UK vapers find the best e-liquid prices.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>E-Liquids</h4>
+                    <ul>
+                        <li><a href="/e-liquids/nic-salts/">Nic Salts</a></li>
+                        <li><a href="/e-liquids/shortfills/">Shortfills</a></li>
+                        <li><a href="/e-liquids/brands/">All Brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="/guides/">Guides</a></li>
+                        <li><a href="/deals/">Deals</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-warning">⚠️ Warning: Contains nicotine. For adult use only (18+).</p>
+                <p class="copyright">© 2025 VapeScout. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/main.js"></script>
+    <script>
+        const SUPABASE_URL = 'https://hsvdtuktjbbfmhslpqjr.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhzdmR0dWt0amJiZm1oc2xwcWpyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgwMTY1MDAsImV4cCI6MjA2MzU5MjUwMH0.hB7wjwymMNvXcwSNoKdSLgxsn2kpaLMlvGT9Y4HMbmI';
+        
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        
+        // Get search query from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('q') || '';
+        
+        // Set search input value
+        document.getElementById('search-input').value = query;
+        
+        // Update page title
+        if (query) {
+            document.getElementById('page-title').textContent = 'Results for "' + query + '"';
+            document.title = query + ' - Search | VapeScout UK';
+        }
+        
+        async function performSearch() {
+            const statusEl = document.getElementById('search-status');
+            const resultsEl = document.getElementById('search-results');
+            const noResultsEl = document.getElementById('no-results');
+            
+            if (!query) {
+                statusEl.textContent = 'Enter a search term above to find e-liquids';
+                return;
+            }
+            
+            statusEl.textContent = 'Searching...';
+            
+            try {
+                // Search products by name (case-insensitive)
+                const { data: products, error } = await supabase
+                    .from('products')
+                    .select('*, brands (name, slug), prices (price, multi_buy_qty, multi_buy_price, url, in_stock, retailers (name, slug))')
+                    .ilike('name', '%' + query + '%')
+                    .limit(50);
+                
+                if (error) throw error;
+                
+                if (!products || products.length === 0) {
+                    statusEl.textContent = 'No results found for "' + query + '"';
+                    noResultsEl.style.display = 'block';
+                    return;
+                }
+                
+                statusEl.textContent = 'Found ' + products.length + ' product' + (products.length === 1 ? '' : 's');
+                
+                // Render products
+                resultsEl.innerHTML = products.map(function(product) {
+                    var prices = product.prices || [];
+                    var lowestPrice = prices.length > 0 
+                        ? Math.min.apply(null, prices.map(function(p) { return p.price; }))
+                        : null;
+                    var brand = product.brands ? product.brands.name : 'Unknown Brand';
+                    var brandSlug = product.brands ? product.brands.slug : '';
+                    
+                    return '<div class="product-card">' +
+                        '<div class="product-content">' +
+                            '<p class="product-brand">' + brand + '</p>' +
+                            '<h3 class="product-title">' + product.name + '</h3>' +
+                            '<div class="product-meta">' +
+                                (product.nicotine_strength ? '<span>' + product.nicotine_strength + 'mg</span>' : '') +
+                                (product.size_ml ? '<span>' + product.size_ml + 'ml</span>' : '') +
+                            '</div>' +
+                            '<div class="product-price-row">' +
+                                (lowestPrice 
+                                    ? '<span class="product-price">From £' + lowestPrice.toFixed(2) + '</span>' +
+                                      '<span class="product-retailers">' + prices.length + ' retailer' + (prices.length === 1 ? '' : 's') + '</span>'
+                                    : '<span class="product-price" style="color: var(--text-tertiary);">Price TBC</span>'
+                                ) +
+                            '</div>' +
+                        '</div>' +
+                    '</div>';
+                }).join('');
+                
+            } catch (err) {
+                console.error('Search error:', err);
+                statusEl.textContent = 'Search error. Please try again.';
+            }
+        }
+        
+        performSearch();
+    </script>
+    
+    <style>
+        .search-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .search-header h1 {
+            margin-bottom: 1.5rem;
+        }
+        .search-header .search-box {
+            max-width: 500px;
+        }
+        .search-status {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+        }
+        .no-results h2 {
+            margin-bottom: 1rem;
+        }
+        .browse-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .product-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+        }
+        .product-brand {
+            font-size: var(--text-sm);
+            color: var(--color-primary);
+            margin-bottom: 0.25rem;
+        }
+        .product-title {
+            font-size: var(--text-lg);
+            margin-bottom: 0.5rem;
+        }
+        .product-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+        .product-price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .product-price {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        .product-retailers {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+        }
+    </style>
+</body>
+</html>
