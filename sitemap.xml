@@ -71,6 +71,12 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://vapescout.co.uk/e-liquids/brands/dinner-lady/</loc>
+    <lastmod>2025-01-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
   
   <!-- Deals Page -->
   <url>
@@ -101,6 +107,12 @@
   </url>
   <url>
     <loc>https://vapescout.co.uk/guides/nicotine-strength-guide/</loc>
+    <lastmod>2025-01-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vapescout.co.uk/guides/nic-salts-vs-freebase/</loc>
     <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
