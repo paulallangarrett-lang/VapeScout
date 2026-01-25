@@ -1,0 +1,26 @@
+# VapeScout UK Robots.txt
+# https://vapescout.co.uk
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://vapescout.co.uk/sitemap.xml
+
+# Block common non-content directories
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
