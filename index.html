@@ -145,21 +145,27 @@
       </div>
     </section>
     
-    <!-- Popular Products -->
+    <!-- Popular Products - Live from Database -->
     <section class="section">
       <div class="container">
         <div class="flex justify-between items-center mb-8" style="flex-wrap:wrap;gap:var(--space-4)">
-          <div><h2>Popular E-Liquids</h2><p style="margin-bottom:0;color:var(--text-secondary)">Top searched products with the biggest price variations</p></div>
+          <div><h2>Popular E-Liquids</h2><p style="margin-bottom:0;color:var(--text-secondary)">Live prices from our database</p></div>
           <a href="/e-liquids/" class="btn btn-secondary">View All</a>
         </div>
-        <div class="grid grid-cols-4 lg:grid-cols-2 sm:grid-cols-1 gap-6">
-          <article class="product-card"><a href="/compare/elfliq-watermelon-20mg.html"><div class="product-card-image"><span class="product-card-badge">Save 55%</span><div style="width:120px;height:120px;background:linear-gradient(135deg,#ff6b6b,#ee5a5a);border-radius:var(--radius-lg)"></div></div><div class="product-card-content"><span class="product-card-brand">Elfliq</span><h3 class="product-card-title">Watermelon 20mg</h3><div class="product-card-meta"><span class="product-card-tag">10ml</span><span class="product-card-tag">Nic Salt</span></div><div class="product-card-prices"><span class="product-card-price-low">£1.99</span><span class="product-card-price-high">£4.50</span></div><span class="product-card-retailers">Compare 12 retailers</span></div></a></article>
-          <article class="product-card"><a href="/compare/bar-juice-blue-razz-20mg.html"><div class="product-card-image"><span class="product-card-badge">Save 50%</span><div style="width:120px;height:120px;background:linear-gradient(135deg,#4facfe,#00f2fe);border-radius:var(--radius-lg)"></div></div><div class="product-card-content"><span class="product-card-brand">Bar Juice 5000</span><h3 class="product-card-title">Blue Razz Lemonade 20mg</h3><div class="product-card-meta"><span class="product-card-tag">10ml</span><span class="product-card-tag">Nic Salt</span></div><div class="product-card-prices"><span class="product-card-price-low">£2.49</span><span class="product-card-price-high">£4.99</span></div><span class="product-card-retailers">Compare 15 retailers</span></div></a></article>
-          <article class="product-card"><a href="/compare/riot-squad-blue-burst-20mg.html"><div class="product-card-image"><span class="product-card-badge">Save 45%</span><div style="width:120px;height:120px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:var(--radius-lg)"></div></div><div class="product-card-content"><span class="product-card-brand">Riot Squad</span><h3 class="product-card-title">Blue Burst 20mg</h3><div class="product-card-meta"><span class="product-card-tag">10ml</span><span class="product-card-tag">Nic Salt</span></div><div class="product-card-prices"><span class="product-card-price-low">£2.99</span><span class="product-card-price-high">£5.49</span></div><span class="product-card-retailers">Compare 10 retailers</span></div></a></article>
-          <article class="product-card"><a href="/compare/maryliq-triple-mango-20mg.html"><div class="product-card-image"><span class="product-card-badge">Save 52%</span><div style="width:120px;height:120px;background:linear-gradient(135deg,#f6d365,#fda085);border-radius:var(--radius-lg)"></div></div><div class="product-card-content"><span class="product-card-brand">MaryLiq</span><h3 class="product-card-title">Triple Mango 20mg</h3><div class="product-card-meta"><span class="product-card-tag">10ml</span><span class="product-card-tag">Nic Salt</span></div><div class="product-card-prices"><span class="product-card-price-low">£2.39</span><span class="product-card-price-high">£4.99</span></div><span class="product-card-retailers">Compare 11 retailers</span></div></a></article>
+        <div id="popular-products" class="products-grid">
+          <p style="text-align: center; color: var(--text-secondary); grid-column: 1/-1;">Loading products...</p>
         </div>
       </div>
     </section>
+    
+    <script>
+      // Initialize homepage products when Supabase loads
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.VapeScout) {
+          window.VapeScout.initHomepage();
+        }
+      });
+    </script>
     
     <!-- Features -->
     <section class="section" style="background:var(--bg-secondary)">
@@ -242,6 +248,8 @@
       </div>
     </div>
   </footer>
-  <script src="/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-data.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
