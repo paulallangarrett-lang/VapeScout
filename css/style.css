@@ -1092,12 +1092,24 @@ p {
 }
 
 .brands-grid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: var(--space-12);
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-8);
   opacity: 0.6;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .brands-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .brand-logo {
@@ -1106,6 +1118,7 @@ p {
   font-weight: 700;
   color: var(--text-tertiary);
   transition: opacity var(--transition-fast);
+  text-align: center;
 }
 
 .brand-logo:hover {
