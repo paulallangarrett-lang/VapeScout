@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | VapeScout UK</title>
+  <meta name="description" content="Get in touch with VapeScout UK. Questions about price comparisons, partnerships, or technical issues? We're here to help.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://vapescout.co.uk/contact/">
+  
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <meta name="theme-color" content="#0891B2">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact VapeScout UK",
+    "url": "https://vapescout.co.uk/contact/"
+  }
+  </script>
+</head>
+<body>
+  <!-- Age Gate -->
+  <div id="age-gate" class="age-gate">
+    <div class="age-gate-backdrop"></div>
+    <div class="age-gate-content">
+      <div class="age-gate-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+      </div>
+      <h2>Age Verification Required</h2>
+      <p>This website contains information about vaping products which are only suitable for adults aged 18 and over.</p>
+      <p><strong>Are you 18 years of age or older?</strong></p>
+      <div class="age-gate-buttons">
+        <button class="btn btn-primary btn-lg" id="age-verify-yes">Yes, I'm 18+</button>
+        <button class="btn btn-secondary btn-lg" id="age-verify-no">No, I'm Under 18</button>
+      </div>
+      <div class="age-gate-warning">
+        <p><strong>WARNING:</strong> Vaping products contain nicotine which is a highly addictive substance.</p>
+      </div>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <span>Vape<span class="text-gradient">Scout</span></span>
+        </a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+        <nav class="nav-main" id="nav-main">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/e-liquids/" class="nav-link">E-Liquids</a>
+          <a href="/compare/" class="nav-link">Compare Prices</a>
+          <a href="/guides/" class="nav-link">Guides</a>
+          <a href="/pages/about.html" class="nav-link">About</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumbs-separator">/</span>
+          <span class="breadcrumbs-current" aria-current="page">Contact</span>
+        </nav>
+        <h1 class="page-title">Contact Us</h1>
+        <p class="page-subtitle">Have a question, suggestion, or partnership enquiry? We'd love to hear from you.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-form-section">
+            <h2>Send Us a Message</h2>
+            <form class="contact-form" action="/api/contact" method="POST">
+              <div class="form-group">
+                <label for="name" class="form-label">Your Name *</label>
+                <input type="text" id="name" name="name" required class="form-input" placeholder="John Smith">
+              </div>
+              <div class="form-group">
+                <label for="email" class="form-label">Email Address *</label>
+                <input type="email" id="email" name="email" required class="form-input" placeholder="john@example.com">
+              </div>
+              <div class="form-group">
+                <label for="subject" class="form-label">Subject *</label>
+                <select id="subject" name="subject" required class="form-select">
+                  <option value="">Please select...</option>
+                  <option value="general">General Enquiry</option>
+                  <option value="technical">Technical Issue / Bug Report</option>
+                  <option value="partnership">Partnership / Business Enquiry</option>
+                  <option value="retailer">Retailer Listing Request</option>
+                  <option value="feedback">Feedback / Suggestion</option>
+                  <option value="press">Press / Media Enquiry</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message" class="form-label">Message *</label>
+                <textarea id="message" name="message" required class="form-textarea" rows="6" placeholder="How can we help you?"></textarea>
+              </div>
+              <div class="form-group form-checkbox">
+                <input type="checkbox" id="age-confirm" name="age-confirm" required>
+                <label for="age-confirm">I confirm I am 18 years of age or older</label>
+              </div>
+              <div class="form-group form-checkbox">
+                <input type="checkbox" id="privacy-agree" name="privacy-agree" required>
+                <label for="privacy-agree">I agree to the <a href="/legal/privacy.html">Privacy Policy</a></label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+            </form>
+          </div>
+
+          <div class="contact-info-section">
+            <h2>Other Ways to Reach Us</h2>
+            
+            <div class="contact-info-cards">
+              <div class="contact-info-card">
+                <div class="contact-info-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <h3>Email</h3>
+                <p>For general enquiries:</p>
+                <a href="mailto:hello@vapescout.co.uk" class="contact-link">hello@vapescout.co.uk</a>
+              </div>
+
+              <div class="contact-info-card">
+                <div class="contact-info-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <h3>Business Partnerships</h3>
+                <p>Retailer listings & affiliate enquiries:</p>
+                <a href="mailto:partners@vapescout.co.uk" class="contact-link">partners@vapescout.co.uk</a>
+              </div>
+
+              <div class="contact-info-card">
+                <div class="contact-info-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <h3>Response Time</h3>
+                <p>We aim to respond to all enquiries within <strong>24-48 hours</strong> during business days.</p>
+              </div>
+            </div>
+
+            <div class="contact-faq">
+              <h3>Quick Answers</h3>
+              <details class="faq-item">
+                <summary class="faq-question">How do I report incorrect pricing?</summary>
+                <div class="faq-answer">
+                  <p>If you spot a price that's wrong, please use the form above and select "Technical Issue / Bug Report". Include the product name, retailer, and the correct price if you know it.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary class="faq-question">I'm a retailer - how do I get listed?</summary>
+                <div class="faq-answer">
+                  <p>We work primarily through affiliate networks (Awin). If you have an affiliate program, contact us at partners@vapescout.co.uk with your program details.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary class="faq-question">Do you sell e-liquids directly?</summary>
+                <div class="faq-answer">
+                  <p>No, VapeScout is a price comparison service only. We don't sell products directly. When you click through to buy, you're purchasing from the retailer's website.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            <div class="logo-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </div>
+            <span>Vape<span class="text-gradient">Scout</span></span>
+          </a>
+          <p class="footer-tagline">Compare e-liquid prices from 50+ UK vape shops.</p>
+          <div class="footer-warning">
+            <p><strong>⚠️ WARNING:</strong> This product contains nicotine which is a highly addictive substance. For adult use only (18+).</p>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>E-Liquids</h4>
+          <ul>
+            <li><a href="/e-liquids/nic-salts/">Nic Salts</a></li>
+            <li><a href="/e-liquids/shortfills/">Shortfills</a></li>
+            <li><a href="/e-liquids/50-50/">50/50 E-Liquids</a></li>
+            <li><a href="/e-liquids/brands/">All Brands</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Guides</h4>
+          <ul>
+            <li><a href="/guides/switching-from-disposables.html">Switching from Disposables</a></li>
+            <li><a href="/guides/nicotine-strength-guide.html">Nicotine Strength Guide</a></li>
+            <li><a href="/guides/nic-salts-vs-freebase.html">Nic Salts vs Freebase</a></li>
+            <li><a href="/guides/best-pod-kits.html">Best Pod Kits 2026</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/pages/about.html">About Us</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/legal/privacy.html">Privacy Policy</a></li>
+            <li><a href="/legal/terms.html">Terms of Service</a></li>
+            <li><a href="/legal/cookies.html">Cookie Policy</a></li>
+            <li><a href="/legal/disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 VapeScout UK. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
