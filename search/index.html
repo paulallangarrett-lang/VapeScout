@@ -60,16 +60,6 @@
                 <div id="search-results" class="products-grid">
                     <!-- Results loaded via JS -->
                 </div>
-                
-                <div id="no-results" class="no-results" style="display: none;">
-                    <h2>No products found</h2>
-                    <p>Try a different search term or browse our categories:</p>
-                    <div class="browse-links">
-                        <a href="/e-liquids/nic-salts/" class="btn btn-primary">Nic Salts</a>
-                        <a href="/e-liquids/shortfills/" class="btn btn-secondary">Shortfills</a>
-                        <a href="/e-liquids/brands/" class="btn btn-secondary">All Brands</a>
-                    </div>
-                </div>
             </div>
         </section>
     </main>
@@ -105,17 +95,35 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/main.js"></script>
     <script>
-        const SUPABASE_URL = 'https://hsvdtuktjbbfmhslpqjr.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhzdmR0dWt0amJiZm1oc2xwcWpyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgwMTY1MDAsImV4cCI6MjA2MzU5MjUwMH0.hB7wjwymMNvXcwSNoKdSLgxsn2kpaLMlvGT9Y4HMbmI';
-        
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        // Demo product data (used while building affiliate partnerships)
+        var demoProducts = [
+            { name: 'Watermelon Ice', brand: 'Elfliq', nicotine: 20, size: 10, price: 3.99, retailers: 5, type: 'Nic Salt' },
+            { name: 'Watermelon', brand: 'Bar Juice 5000', nicotine: 10, size: 10, price: 2.99, retailers: 4, type: 'Nic Salt' },
+            { name: 'Watermelon Lemonade', brand: 'Dinner Lady', nicotine: 20, size: 10, price: 4.49, retailers: 3, type: 'Nic Salt' },
+            { name: 'Watermelon Slices', brand: 'Vampire Vape', nicotine: 10, size: 10, price: 3.49, retailers: 6, type: 'Nic Salt' },
+            { name: 'Blue Razz Lemonade', brand: 'Elfliq', nicotine: 20, size: 10, price: 3.99, retailers: 5, type: 'Nic Salt' },
+            { name: 'Blueberry Sour Raspberry', brand: 'Elfliq', nicotine: 20, size: 10, price: 3.99, retailers: 4, type: 'Nic Salt' },
+            { name: 'Strawberry Ice', brand: 'Elfliq', nicotine: 20, size: 10, price: 3.99, retailers: 5, type: 'Nic Salt' },
+            { name: 'Strawberry Kiwi', brand: 'Bar Juice 5000', nicotine: 10, size: 10, price: 2.99, retailers: 4, type: 'Nic Salt' },
+            { name: 'Mango Ice', brand: 'Elfliq', nicotine: 20, size: 10, price: 3.99, retailers: 5, type: 'Nic Salt' },
+            { name: 'Grape', brand: 'MaryLiq', nicotine: 20, size: 10, price: 4.29, retailers: 3, type: 'Nic Salt' },
+            { name: 'Cherry Ice', brand: 'MaryLiq', nicotine: 20, size: 10, price: 4.29, retailers: 3, type: 'Nic Salt' },
+            { name: 'Heisenberg', brand: 'Vampire Vape', nicotine: 10, size: 10, price: 3.49, retailers: 8, type: 'Nic Salt' },
+            { name: 'Pinkman', brand: 'Vampire Vape', nicotine: 10, size: 10, price: 3.49, retailers: 7, type: 'Nic Salt' },
+            { name: 'Cola Ice', brand: 'Bar Juice 5000', nicotine: 20, size: 10, price: 2.99, retailers: 4, type: 'Nic Salt' },
+            { name: 'Apple Peach', brand: 'Dinner Lady', nicotine: 20, size: 10, price: 4.49, retailers: 3, type: 'Nic Salt' },
+            { name: 'Lemon Tart', brand: 'Dinner Lady', nicotine: 20, size: 10, price: 4.49, retailers: 5, type: 'Nic Salt' },
+            { name: 'Blue Menthol', brand: 'IVG', nicotine: 20, size: 10, price: 4.99, retailers: 4, type: 'Nic Salt' },
+            { name: 'Rainbow Blast', brand: 'IVG', nicotine: 20, size: 10, price: 4.99, retailers: 4, type: 'Nic Salt' },
+            { name: 'Tropical Fruits', brand: 'SKE Crystal', nicotine: 20, size: 10, price: 3.99, retailers: 3, type: 'Nic Salt' },
+            { name: 'Blue Raspberry', brand: 'Riot Squad', nicotine: 10, size: 10, price: 4.49, retailers: 4, type: 'Nic Salt' }
+        ];
         
         // Get search query from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const query = urlParams.get('q') || '';
+        var urlParams = new URLSearchParams(window.location.search);
+        var query = urlParams.get('q') || '';
         
         // Set search input value
         document.getElementById('search-input').value = query;
@@ -126,68 +134,50 @@
             document.title = query + ' - Search | VapeScout UK';
         }
         
-        async function performSearch() {
-            const statusEl = document.getElementById('search-status');
-            const resultsEl = document.getElementById('search-results');
-            const noResultsEl = document.getElementById('no-results');
+        function performSearch() {
+            var statusEl = document.getElementById('search-status');
+            var resultsEl = document.getElementById('search-results');
             
             if (!query) {
                 statusEl.textContent = 'Enter a search term above to find e-liquids';
                 return;
             }
             
-            statusEl.textContent = 'Searching...';
+            // Search demo products
+            var searchLower = query.toLowerCase();
+            var results = demoProducts.filter(function(p) {
+                return p.name.toLowerCase().indexOf(searchLower) !== -1 || 
+                       p.brand.toLowerCase().indexOf(searchLower) !== -1;
+            });
             
-            try {
-                // Search products by name (case-insensitive)
-                const { data: products, error } = await supabase
-                    .from('products')
-                    .select('*, brands (name, slug), prices (price, multi_buy_qty, multi_buy_price, url, in_stock, retailers (name, slug))')
-                    .ilike('name', '%' + query + '%')
-                    .limit(50);
-                
-                if (error) throw error;
-                
-                if (!products || products.length === 0) {
-                    statusEl.textContent = 'No results found for "' + query + '"';
-                    noResultsEl.style.display = 'block';
-                    return;
-                }
-                
-                statusEl.textContent = 'Found ' + products.length + ' product' + (products.length === 1 ? '' : 's');
-                
-                // Render products
-                resultsEl.innerHTML = products.map(function(product) {
-                    var prices = product.prices || [];
-                    var lowestPrice = prices.length > 0 
-                        ? Math.min.apply(null, prices.map(function(p) { return p.price; }))
-                        : null;
-                    var brand = product.brands ? product.brands.name : 'Unknown Brand';
-                    var brandSlug = product.brands ? product.brands.slug : '';
-                    
-                    return '<div class="product-card">' +
-                        '<div class="product-content">' +
-                            '<p class="product-brand">' + brand + '</p>' +
-                            '<h3 class="product-title">' + product.name + '</h3>' +
-                            '<div class="product-meta">' +
-                                (product.nicotine_strength ? '<span>' + product.nicotine_strength + 'mg</span>' : '') +
-                                (product.size_ml ? '<span>' + product.size_ml + 'ml</span>' : '') +
-                            '</div>' +
-                            '<div class="product-price-row">' +
-                                (lowestPrice 
-                                    ? '<span class="product-price">From £' + lowestPrice.toFixed(2) + '</span>' +
-                                      '<span class="product-retailers">' + prices.length + ' retailer' + (prices.length === 1 ? '' : 's') + '</span>'
-                                    : '<span class="product-price" style="color: var(--text-tertiary);">Price TBC</span>'
-                                ) +
-                            '</div>' +
-                        '</div>' +
-                    '</div>';
-                }).join('');
-                
-            } catch (err) {
-                console.error('Search error:', err);
-                statusEl.textContent = 'Search error. Please try again.';
+            if (results.length === 0) {
+                statusEl.innerHTML = 'No results for "' + query + '"<br><br>Try searching for: <a href="/search/?q=watermelon">watermelon</a>, <a href="/search/?q=strawberry">strawberry</a>, <a href="/search/?q=elfliq">elfliq</a>, or <a href="/search/?q=heisenberg">heisenberg</a>';
+                resultsEl.innerHTML = '<div class="browse-links" style="margin-top: 2rem;"><a href="/e-liquids/nic-salts/" class="btn btn-primary">Browse Nic Salts</a><a href="/e-liquids/brands/" class="btn btn-secondary">All Brands</a></div>';
+                return;
             }
+            
+            statusEl.textContent = 'Found ' + results.length + ' product' + (results.length === 1 ? '' : 's');
+            
+            // Render products
+            resultsEl.innerHTML = results.map(function(product) {
+                var brandSlug = product.brand.toLowerCase().replace(/ /g, '-');
+                return '<div class="product-card">' +
+                    '<div class="product-content">' +
+                        '<span class="product-type-badge">' + product.type + '</span>' +
+                        '<p class="product-brand">' + product.brand + '</p>' +
+                        '<h3 class="product-title">' + product.name + '</h3>' +
+                        '<div class="product-meta">' +
+                            '<span>' + product.nicotine + 'mg</span>' +
+                            '<span>' + product.size + 'ml</span>' +
+                        '</div>' +
+                        '<div class="product-price-row">' +
+                            '<span class="product-price">From £' + product.price.toFixed(2) + '</span>' +
+                            '<span class="product-retailers">' + product.retailers + ' retailers</span>' +
+                        '</div>' +
+                        '<a href="/e-liquids/brands/' + brandSlug + '/" class="btn btn-sm btn-primary" style="margin-top: 0.75rem; display: inline-block;">Compare Prices</a>' +
+                    '</div>' +
+                '</div>';
+            }).join('');
         }
         
         performSearch();
@@ -209,18 +199,13 @@
             color: var(--text-secondary);
             margin-bottom: 2rem;
         }
-        .no-results {
-            text-align: center;
-            padding: 3rem;
-        }
-        .no-results h2 {
-            margin-bottom: 1rem;
+        .search-status a {
+            color: var(--color-primary);
         }
         .browse-links {
             display: flex;
             gap: 1rem;
             justify-content: center;
-            margin-top: 1.5rem;
             flex-wrap: wrap;
         }
         .product-card {
@@ -228,6 +213,19 @@
             border: 1px solid var(--border-color);
             border-radius: var(--radius-lg);
             padding: 1.5rem;
+            transition: border-color 0.2s;
+        }
+        .product-card:hover {
+            border-color: var(--color-primary);
+        }
+        .product-type-badge {
+            display: inline-block;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            margin-bottom: 0.5rem;
         }
         .product-brand {
             font-size: var(--text-sm);
@@ -258,6 +256,10 @@
         .product-retailers {
             font-size: var(--text-sm);
             color: var(--text-secondary);
+        }
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
         }
     </style>
 </body>
