@@ -158,24 +158,6 @@
       </div>
     </section>
     
-    <script>
-      // Wait for everything to load
-      window.addEventListener('load', function() {
-        if (window.VapeScout && window.VapeScout.initHomepage) {
-          window.VapeScout.initHomepage();
-        } else {
-          console.log('VapeScout not loaded, retrying...');
-          setTimeout(function() {
-            if (window.VapeScout && window.VapeScout.initHomepage) {
-              window.VapeScout.initHomepage();
-            } else {
-              document.getElementById('popular-products').innerHTML = '<p style="text-align:center;color:var(--text-secondary);grid-column:1/-1;">Unable to load products. Please refresh.</p>';
-            }
-          }, 1000);
-        }
-      });
-    </script>
-    
     <!-- Features -->
     <section class="section" style="background:var(--bg-secondary)">
       <div class="container">

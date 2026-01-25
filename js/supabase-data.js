@@ -182,4 +182,10 @@
     };
 
     console.log('VapeScout data layer loaded successfully');
+    
+    // Auto-initialize homepage if we're on it
+    if (document.getElementById('popular-products')) {
+        console.log('Auto-initializing homepage...');
+        initHomepage();
+    }
 })();
