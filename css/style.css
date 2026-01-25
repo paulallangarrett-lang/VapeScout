@@ -2649,3 +2649,191 @@ a.brand-logo:hover {
     color: var(--primary-500);
     transform: scale(1.05);
 }
+
+/* ================================================
+   STEPS LIST (for guides)
+   ================================================ */
+
+.steps-list {
+    margin: 2rem 0;
+}
+
+.step {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-primary);
+}
+
+.step:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-500);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+
+.step-content h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.125rem;
+}
+
+.step-content p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+/* Device guide styling */
+.device-guide {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.device-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.device-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.device-examples {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+/* Quick reference grid */
+.reference-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.reference-item {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.reference-item h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.reference-item p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+/* Brand link cards for related brands section */
+.brand-link-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-decoration: none;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.brand-link-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-500);
+}
+
+.brand-link-card .brand-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1.125rem;
+}
+
+.brand-link-card .brand-note {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Format list in sidebar */
+.format-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.format-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-primary);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.format-list li:last-child {
+    border-bottom: none;
+}
+
+/* Related brands section */
+.related-brands {
+    background: var(--bg-secondary);
+    padding: 3rem 0;
+}
+
+.related-brands h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.related-brands .brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Homepage improvements */
+.trending-section {
+    padding: 4rem 0;
+}
+
+.trending-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.deal-badge {
+    display: inline-block;
+    background: var(--accent-500);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}

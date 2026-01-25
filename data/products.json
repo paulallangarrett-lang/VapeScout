@@ -1,0 +1,264 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2025-01-25",
+    "totalProducts": 50,
+    "totalBrands": 10,
+    "totalRetailers": 15
+  },
+  "brands": [
+    {
+      "id": "elfliq",
+      "name": "Elfliq",
+      "slug": "elfliq",
+      "country": "UK",
+      "description": "Official Elf Bar e-liquid range",
+      "website": "https://elfbar.com",
+      "types": ["nic-salt"],
+      "featured": true
+    },
+    {
+      "id": "bar-juice-5000",
+      "name": "Bar Juice 5000",
+      "slug": "bar-juice-5000",
+      "country": "UK",
+      "description": "Disposable-style nic salts",
+      "types": ["nic-salt"],
+      "featured": true
+    },
+    {
+      "id": "vampire-vape",
+      "name": "Vampire Vape",
+      "slug": "vampire-vape",
+      "country": "UK",
+      "description": "Home of Heisenberg",
+      "website": "https://vampirevape.co.uk",
+      "types": ["nic-salt", "shortfill", "50-50"],
+      "featured": true
+    },
+    {
+      "id": "dinner-lady",
+      "name": "Dinner Lady",
+      "slug": "dinner-lady",
+      "country": "UK",
+      "description": "Award-winning Lemon Tart",
+      "website": "https://dinnerlady.com",
+      "types": ["nic-salt", "shortfill", "50-50"],
+      "featured": true
+    },
+    {
+      "id": "maryliq",
+      "name": "MaryLiq",
+      "slug": "maryliq",
+      "country": "UK",
+      "description": "Official Lost Mary e-liquids",
+      "types": ["nic-salt"],
+      "featured": true
+    },
+    {
+      "id": "ske-crystal",
+      "name": "SKE Crystal",
+      "slug": "ske-crystal",
+      "country": "UK",
+      "description": "Official Crystal Bar e-liquids",
+      "types": ["nic-salt"],
+      "featured": true
+    },
+    {
+      "id": "ivg",
+      "name": "IVG",
+      "slug": "ivg",
+      "country": "UK",
+      "description": "I Love VG premium liquids",
+      "website": "https://ivgeliquids.com",
+      "types": ["nic-salt", "shortfill", "50-50"],
+      "featured": false
+    },
+    {
+      "id": "riot-squad",
+      "name": "Riot Squad",
+      "slug": "riot-squad",
+      "country": "UK",
+      "description": "Bold British flavours",
+      "website": "https://riotsquad.com",
+      "types": ["nic-salt", "shortfill"],
+      "featured": false
+    },
+    {
+      "id": "nasty-juice",
+      "name": "Nasty Juice",
+      "slug": "nasty-juice",
+      "country": "MY",
+      "description": "Malaysian premium e-liquid",
+      "website": "https://nastyjuice.com",
+      "types": ["nic-salt", "shortfill"],
+      "featured": false
+    }
+  ],
+  "retailers": [
+    {
+      "id": "vapeuk",
+      "name": "Vape UK",
+      "website": "https://vapeuk.co.uk",
+      "freeDeliveryThreshold": 20,
+      "deliveryCost": 2.99,
+      "affiliateNetwork": "awin",
+      "active": true
+    },
+    {
+      "id": "vapesuperstore",
+      "name": "Vape Superstore",
+      "website": "https://vapesuperstore.co.uk",
+      "freeDeliveryThreshold": 25,
+      "deliveryCost": 3.49,
+      "affiliateNetwork": "awin",
+      "active": true
+    },
+    {
+      "id": "greyhaze",
+      "name": "Grey Haze",
+      "website": "https://greyhaze.co.uk",
+      "freeDeliveryThreshold": 15,
+      "deliveryCost": 2.49,
+      "affiliateNetwork": "awin",
+      "active": true
+    },
+    {
+      "id": "electrictobacconist",
+      "name": "Electric Tobacconist",
+      "website": "https://electrictobacconist.co.uk",
+      "freeDeliveryThreshold": 10,
+      "deliveryCost": 1.99,
+      "affiliateNetwork": "awin",
+      "active": true
+    },
+    {
+      "id": "onlinevaperz",
+      "name": "Online Vaperz",
+      "website": "https://onlinevaperz.co.uk",
+      "freeDeliveryThreshold": 20,
+      "deliveryCost": 2.99,
+      "affiliateNetwork": null,
+      "active": true
+    }
+  ],
+  "products": [
+    {
+      "id": "elfliq-watermelon-20mg",
+      "name": "Watermelon",
+      "brand": "elfliq",
+      "type": "nic-salt",
+      "nicotineStrength": 20,
+      "size": 10,
+      "vgPgRatio": "50/50",
+      "flavourCategory": "fruit",
+      "flavourNotes": ["watermelon", "sweet"],
+      "rrp": 4.99,
+      "slug": "elfliq-watermelon-20mg",
+      "image": null,
+      "popular": true
+    },
+    {
+      "id": "elfliq-blue-razz-lemonade-20mg",
+      "name": "Blue Razz Lemonade",
+      "brand": "elfliq",
+      "type": "nic-salt",
+      "nicotineStrength": 20,
+      "size": 10,
+      "vgPgRatio": "50/50",
+      "flavourCategory": "fruit",
+      "flavourNotes": ["blue raspberry", "lemonade", "sweet"],
+      "rrp": 4.99,
+      "slug": "elfliq-blue-razz-lemonade-20mg",
+      "image": null,
+      "popular": true
+    },
+    {
+      "id": "vampire-vape-heisenberg-10mg",
+      "name": "Heisenberg",
+      "brand": "vampire-vape",
+      "type": "nic-salt",
+      "nicotineStrength": 10,
+      "size": 10,
+      "vgPgRatio": "50/50",
+      "flavourCategory": "menthol",
+      "flavourNotes": ["mystery", "berry", "menthol"],
+      "rrp": 4.99,
+      "slug": "vampire-vape-heisenberg-10mg",
+      "image": null,
+      "popular": true
+    },
+    {
+      "id": "dinner-lady-lemon-tart-20mg",
+      "name": "Lemon Tart",
+      "brand": "dinner-lady",
+      "type": "nic-salt",
+      "nicotineStrength": 20,
+      "size": 10,
+      "vgPgRatio": "50/50",
+      "flavourCategory": "dessert",
+      "flavourNotes": ["lemon", "pastry", "meringue"],
+      "rrp": 5.99,
+      "slug": "dinner-lady-lemon-tart-20mg",
+      "image": null,
+      "popular": true
+    }
+  ],
+  "prices": [
+    {
+      "productId": "elfliq-watermelon-20mg",
+      "retailerId": "vapeuk",
+      "price": 2.99,
+      "multiBuy": { "quantity": 10, "price": 20.00 },
+      "inStock": true,
+      "lastChecked": "2025-01-25T10:00:00Z"
+    },
+    {
+      "productId": "elfliq-watermelon-20mg",
+      "retailerId": "greyhaze",
+      "price": 3.49,
+      "multiBuy": { "quantity": 5, "price": 15.00 },
+      "inStock": true,
+      "lastChecked": "2025-01-25T10:00:00Z"
+    },
+    {
+      "productId": "vampire-vape-heisenberg-10mg",
+      "retailerId": "vampirevape",
+      "price": 3.99,
+      "multiBuy": { "quantity": 10, "price": 25.00 },
+      "inStock": true,
+      "lastChecked": "2025-01-25T10:00:00Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "nic-salts",
+      "name": "Nic Salts",
+      "slug": "nic-salts",
+      "description": "Smooth nicotine salt e-liquids",
+      "defaultStrengths": [10, 20]
+    },
+    {
+      "id": "shortfills",
+      "name": "Shortfills",
+      "slug": "shortfills",
+      "description": "50ml and 100ml nicotine-free bottles",
+      "defaultStrengths": [0]
+    },
+    {
+      "id": "50-50",
+      "name": "50/50 E-Liquids",
+      "slug": "50-50",
+      "description": "Balanced VG/PG ratio for MTL devices",
+      "defaultStrengths": [3, 6, 12, 18]
+    }
+  ],
+  "flavourCategories": [
+    { "id": "fruit", "name": "Fruit", "icon": "🍓" },
+    { "id": "menthol", "name": "Menthol & Ice", "icon": "❄️" },
+    { "id": "dessert", "name": "Dessert", "icon": "🍰" },
+    { "id": "tobacco", "name": "Tobacco", "icon": "🍂" },
+    { "id": "candy", "name": "Candy & Sweet", "icon": "🍬" },
+    { "id": "drink", "name": "Drinks", "icon": "🥤" }
+  ]
+}

@@ -77,6 +77,24 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://vapescout.co.uk/e-liquids/brands/ivg/</loc>
+    <lastmod>2025-01-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vapescout.co.uk/e-liquids/brands/riot-squad/</loc>
+    <lastmod>2025-01-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vapescout.co.uk/e-liquids/brands/nasty-juice/</loc>
+    <lastmod>2025-01-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
   
   <!-- Deals Page -->
   <url>
@@ -113,6 +131,12 @@
   </url>
   <url>
     <loc>https://vapescout.co.uk/guides/nic-salts-vs-freebase/</loc>
+    <lastmod>2025-01-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vapescout.co.uk/guides/shortfills-explained/</loc>
     <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
