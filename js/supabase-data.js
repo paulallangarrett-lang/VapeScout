@@ -2,8 +2,8 @@
 const SUPABASE_URL = 'https://quixkyblpiwazhpvjeir.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF1aXhreWJscGl3YXpocHZqZWlyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkzNTMzMjYsImV4cCI6MjA4NDkyOTMyNn0._mNGAp4DAl8KPoPrv7XlrNLOS07vqRJ1RNYhyZ0gbc8';
 
-// Initialize Supabase client
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// Initialize Supabase client (using different variable name to avoid conflict)
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // =====================
 // DATA FETCHING FUNCTIONS
@@ -11,7 +11,7 @@ const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // Get all brands
 async function getBrands(featuredOnly = false) {
-    let query = supabase.from('brands').select('*').order('name');
+    let query = supabaseClient.from('brands').select('*').order('name');
     if (featuredOnly) {
         query = query.eq('featured', true);
     }
@@ -25,7 +25,7 @@ async function getBrands(featuredOnly = false) {
 
 // Get single brand by slug
 async function getBrandBySlug(slug) {
-    const { data, error } = await supabase
+    const { data, error } = await supabaseClient
         .from('brands')
         .select('*')
         .eq('slug', slug)
@@ -39,7 +39,7 @@ async function getBrandBySlug(slug) {
 
 // Get all retailers
 async function getRetailers() {
-    const { data, error } = await supabase
+    const { data, error } = await supabaseClient
         .from('retailers')
         .select('*')
         .eq('active', true)
@@ -53,7 +53,7 @@ async function getRetailers() {
 
 // Get products with optional filters
 async function getProducts(filters = {}) {
-    let query = supabase
+    let query = supabaseClient
         .from('products')
         .select(`
             *,
@@ -95,7 +95,7 @@ async function getProducts(filters = {}) {
 
 // Get single product by slug with all prices
 async function getProductBySlug(slug) {
-    const { data: product, error: productError } = await supabase
+    const { data: product, error: productError } = await supabaseClient
         .from('products')
         .select(`
             *,
@@ -110,7 +110,7 @@ async function getProductBySlug(slug) {
     }
     
     // Get prices for this product
-    const { data: prices, error: pricesError } = await supabase
+    const { data: prices, error: pricesError } = await supabaseClient
         .from('prices')
         .select(`
             *,
@@ -137,7 +137,7 @@ async function getProductsWithPrices(filters = {}) {
     // Get all prices for these products
     const productIds = products.map(p => p.id);
     
-    const { data: allPrices, error } = await supabase
+    const { data: allPrices, error } = await supabaseClient
         .from('prices')
         .select(`
             *,
@@ -183,7 +183,7 @@ async function getBestDeals(limit = 8) {
 
 // Get multi-buy deals
 async function getMultiBuyDeals(limit = 10) {
-    const { data, error } = await supabase
+    const { data, error } = await supabaseClient
         .from('prices')
         .select(`
             *,
@@ -210,7 +210,7 @@ async function getMultiBuyDeals(limit = 10) {
 
 // Search products
 async function searchProducts(query) {
-    const { data, error } = await supabase
+    const { data, error } = await supabaseClient
         .from('products')
         .select(`
             *,
