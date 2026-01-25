@@ -2638,3 +2638,14 @@ p {
     color: var(--text-secondary);
     margin-bottom: 2rem;
 }
+
+/* Brand logo links */
+a.brand-logo {
+    text-decoration: none;
+    transition: color 0.2s, transform 0.2s;
+}
+
+a.brand-logo:hover {
+    color: var(--primary-500);
+    transform: scale(1.05);
+}
