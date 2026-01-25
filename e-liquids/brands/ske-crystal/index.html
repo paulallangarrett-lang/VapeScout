@@ -91,34 +91,28 @@
             <p>This website contains information about vaping products which are only suitable for adults aged 18 and over.</p>
             <p><strong>Are you 18 years of age or older?</strong></p>
             <div class="age-gate-buttons">
-                <button id="age-yes" class="btn btn-primary">Yes, I'm 18+</button>
-                <button id="age-no" class="btn btn-secondary">No, I'm Under 18</button>
+                <button id="age-verify-yes" class="btn btn-primary">Yes, I'm 18+</button>
+                <button id="age-verify-no" class="btn btn-secondary">No, I'm Under 18</button>
             </div>
         </div>
     </div>
 
     <!-- Header -->
     <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="/" class="logo">
-                    <span class="logo-icon">🔍</span>
-                    <span class="logo-text">VapeScout</span>
-                </a>
-                <button class="nav-toggle" aria-label="Toggle navigation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-menu">
-                    <li><a href="/e-liquids/">E-Liquids</a></li>
-                    <li><a href="/e-liquids/brands/">Brands</a></li>
-                    <li><a href="/guides/">Guides</a></li>
-                    <li><a href="/contact/">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo"><div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div><span>Vape<span class="text-gradient">Scout</span></span></a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+        <nav class="nav-main" id="nav-main">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/e-liquids/" class="nav-link">E-Liquids</a>
+          <a href="/e-liquids/brands/" class="nav-link">Brands</a>
+          <a href="/deals/" class="nav-link">Deals</a>
+          <a href="/guides/" class="nav-link">Guides</a>
+        </nav>
+      </div>
+    </div>
+  </header>
 
     <main>
         <!-- Breadcrumb -->
