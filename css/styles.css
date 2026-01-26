@@ -614,12 +614,24 @@ p {
   height: 100%;
 }
 
-.product-card > *:last-child {
+.product-card .btn {
   margin-top: auto;
 }
 
 .product-card .product-prices {
-  min-height: 60px;
+  min-height: 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Ensure grid items stretch to equal height */
+.grid {
+  align-items: stretch;
+}
+
+.grid > .card {
+  height: 100%;
 }
 
 .product-badge {
