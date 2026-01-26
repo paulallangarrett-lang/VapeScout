@@ -609,6 +609,17 @@ p {
 .product-card {
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-card > *:last-child {
+  margin-top: auto;
+}
+
+.product-card .product-prices {
+  min-height: 60px;
 }
 
 .product-badge {
