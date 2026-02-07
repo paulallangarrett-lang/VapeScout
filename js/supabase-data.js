@@ -158,7 +158,21 @@
         popularContainer.innerHTML = '<p style="text-align:center;color:var(--text-secondary);grid-column:1/-1;">Loading products...</p>';
         
         try {
-            var products = await getProductsWithPrices({ popularOnly: true, limit: 8 });
+            // Get popular products first, then fill with latest products
+            var products = await getProductsWithPrices({ popularOnly: true, limit: 12 });
+            
+            // If we don't have enough popular products, get more from all products
+            if (products.length < 12) {
+                var moreProducts = await getProductsWithPrices({ limit: 12 - products.length });
+                // Filter out duplicates
+                var existingIds = products.map(function(p) { return p.id; });
+                moreProducts.forEach(function(p) {
+                    if (existingIds.indexOf(p.id) === -1) {
+                        products.push(p);
+                    }
+                });
+            }
+            
             console.log('Products loaded:', products.length);
             
             if (products.length > 0) {
